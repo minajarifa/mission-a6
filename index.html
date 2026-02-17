@@ -37,13 +37,13 @@
   <body class="">
     <!-- header -->
     <header>
-      <div class="navbar shadow-sm">
+      <div class="shadow-sm navbar">
         <div class="navbar-start">
           <div class="dropdown">
             <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                class="h-5 w-5"
+                class="w-5 h-5"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -58,7 +58,7 @@
             </div>
             <ul
               tabindex="-1"
-              class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
+              class="p-2 mt-3 shadow menu menu-sm dropdown-content bg-base-100 rounded-box z-1 w-52"
             >
               <li><a class="font-bold">Home</a></li>
               <li><a class="font-bold">Products</a></li>
@@ -66,10 +66,10 @@
               <li><a class="font-bold">Contact</a></li>
             </ul>
           </div>
-          <a class="btn btn-ghost text-xl font-bold">SwiftCard</a>
+          <a class="text-xl font-bold btn btn-ghost">SwiftCard</a>
         </div>
-        <div class="navbar-center hidden lg:flex">
-          <ul class="menu menu-horizontal px-1">
+        <div class="hidden navbar-center lg:flex">
+          <ul class="px-1 menu menu-horizontal">
             <li><a class="font-bold">Home</a></li>
             <li><a class="font-bold">Products</a></li>
             <li><a class="font-bold">About</a></li>
@@ -84,7 +84,7 @@
     <!-- banner section -->
     <section>
       <div
-        class="hero min-h-screen"
+        class="min-h-screen hero"
         style="background-image: url(./Assets/banner-image.png)"
       >
         <div class="hero-overlay"></div>
@@ -108,7 +108,7 @@
         We provide the best shopping experience with top-notch services.
       </p>
       <!-- card start -->
-      <div class="card bg-base-100 w-96 shadow-sm">
+      <div class="shadow-sm card bg-base-100 w-96">
         <div class="card-body">
           <figure>
             <img
@@ -126,32 +126,22 @@
       <!-- card end -->
     </section>
     <!-- All Products section -->
-    <section>
+    <section >
       <h1 class="text-5xl text-center">Our Products</h1>
-      <!-- card start -->
-     <div class="card bg-base-100 w-96 shadow-sm">
-  <figure>
-    <img
-      src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
-      alt="Shoes" />
-  </figure>
-  <div class="card-body">
-    <h2 class="card-title">
-      Card Title
-      <div class="badge badge-secondary">NEW</div>
-    </h2>
-    <p>A card component has a figure, a body part, and inside body there are title and actions parts</p>
-    <div class="card-actions justify-end">
-      <div class="badge badge-outline">Fashion</div>
-      <div class="badge badge-outline">Products</div>
-    </div>
-  </div>
-</div>
-      <!-- card end -->
+      <!-- added button  -->
+      <div
+        id="level-container"
+        class="flex flex-wrap justify-center gap-5"
+      ></div>
+      <div  id="card-container" class="grid grid-cols-3 gap-5 p-10 mx-auto w-10\11">
+        <!-- card start -->
+        
+        <!-- card end -->
+      </div>
     </section>
     <!-- footer -->
     <footer>
-      <div class="footer sm:footer-horizontal text-base-content p-10">
+      <div class="p-10 footer sm:footer-horizontal text-base-content">
         <nav>
           <h6 class="footer-title">SwiftCard</h6>
           <p>
@@ -193,9 +183,9 @@
       </div>
       <hr />
       <div
-        class="footer sm:footer-horizontal bg-neutral text-neutral-content items-center p-4"
+        class="items-center p-4 footer sm:footer-horizontal bg-neutral text-neutral-content"
       >
-        <aside class="grid-flow-col items-center">
+        <aside class="items-center grid-flow-col">
           <svg
             width="36"
             height="36"
