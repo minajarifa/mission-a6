@@ -32,7 +32,7 @@ const displayAllData = (cards) => {
              ${card?.description}
             </p>
             <div class="justify-between card-actions">
-            <button class="btn btn-outline flex">
+            <button onclick="my_modal_5.showModal()" class="btn btn-outline flex">
             <i class="fa-solid fa-eye"></i>
             Details</button>
              <button class="btn btn-primary flex">
@@ -52,13 +52,17 @@ const loadLession = () => {
     .then((res) => res.json())
     .then((data) => dispalyLession(data));
 };
+const removeAction =()=>{
+  const lessionButton = document.querySelectorAll(".lession-btn")
+  lessionButton.forEach(btn=>btn.classList.remove("active"))
+}
 // category data fetch
 const loadCategoryCard = (lession) => {
   const url = `https://fakestoreapi.com/products/category/${lession}`;
   fetch(url)
     .then((res) => res.json())
     .then((data) => {
-      // TODO
+      removeAction()
       const clickBtn = document.getElementById(`lesson-${lession}`)
       clickBtn.classList.add("active")
       // console.log(clickBtn)
@@ -93,7 +97,7 @@ const displayCategoryCard = (category) => {
              ${categori?.description}
             </p>
             <div class="justify-between card-actions">
-            <button class="btn btn-outline flex">
+            <button onclick="my_modal_5.showModal()" class="btn btn-outline flex">
             <i class="fa-solid fa-eye"></i>
             Details</button>
              <button class="btn btn-primary flex">
@@ -114,7 +118,7 @@ const dispalyLession = (lessions) => {
   for (let lession of lessions) {
     console.log(lession)
     const btn = document.createElement("button");
-    btn.class = "btn btn-dash btn-primary";
+    btn.classList = "btn btn-dash btn-primary  lession-btn";
     btn.id = `lesson-${lession}`;
     btn.innerText = lession;
     btn.addEventListener("click", () => {
