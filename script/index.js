@@ -1,10 +1,10 @@
 // get all data fetch
-const getAllData =()=>{
-  const url = `https://fakestoreapi.com/products`
+const getAllData = () => {
+  const url = `https://fakestoreapi.com/products`;
   fetch(url)
-  .then(res=>res.json())
-  .then(data=>displayAllData(data))
-}
+    .then((res) => res.json())
+    .then((data) => displayAllData(data));
+};
 // display all data
 const displayAllData = (cards) => {
   const allData = document.getElementById("allData");
@@ -43,7 +43,7 @@ const displayAllData = (cards) => {
         </div>
     `;
 
-    allData.appendChild(data);  
+    allData.appendChild(data);
   });
 };
 // get category item
@@ -57,7 +57,13 @@ const loadCategoryCard = (lession) => {
   const url = `https://fakestoreapi.com/products/category/${lession}`;
   fetch(url)
     .then((res) => res.json())
-    .then((data) => displayCategoryCard(data));
+    .then((data) => {
+      // TODO
+      const clickBtn = document.getElementById(`lesson-${lession}`)
+      clickBtn.classList.add("active")
+      // console.log(clickBtn)
+      displayCategoryCard(data);
+    });
 };
 // category data display
 const displayCategoryCard = (category) => {
@@ -106,8 +112,10 @@ const dispalyLession = (lessions) => {
   // levelContainer.innerHTML = "";
 
   for (let lession of lessions) {
+    console.log(lession)
     const btn = document.createElement("button");
-    btn.className = "btn btn-dash btn-primary";
+    btn.class = "btn btn-dash btn-primary";
+    btn.id = `lesson-${lession}`;
     btn.innerText = lession;
     btn.addEventListener("click", () => {
       loadCategoryCard(lession);
@@ -116,5 +124,5 @@ const dispalyLession = (lessions) => {
     levelContainer.appendChild(btn);
   }
 };
-getAllData()
+getAllData();
 loadLession();
