@@ -32,10 +32,99 @@
       type="text/css"
     />
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css" />
   </head>
-  <body>
-    <h1>Mission Restart Assignment 6</h1>
-    <img src="./Assets/banner-image.png" alt="" />
+  <body class="">
+    <!-- header -->
+    <header>
+      <div class="navbar shadow-sm">
+        <div class="navbar-start">
+          <div class="dropdown">
+            <div tabindex="{0}" role="button" class="btn btn-ghost lg:hidden">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-5 w-5"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M4 6h16M4 12h8m-8 6h16"
+                />
+              </svg>
+            </div>
+            <ul
+              tabindex="-1"
+              class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
+            >
+              <li><a>Home</a></li>
+              <li><a>Products</a></li>
+              <li><a>About</a></li>
+              <li><a>Contact</a></li>
+            </ul>
+          </div>
+          <a class="btn btn-ghost text-xl">daisyUI</a>
+        </div>
+        <div class="navbar-center hidden lg:flex">
+          <ul class="menu menu-horizontal px-1">
+            <li><a>Home</a></li>
+            <li><a>Products</a></li>
+            <li><a>About</a></li>
+            <li><a>Contact</a></li>
+          </ul>
+        </div>
+        <div class="navbar-end">
+          <a class="btn">Button</a>
+        </div>
+      </div>
+    </header>
+    <section></section>
+    <section></section>
+    <!-- footer -->
+    <footer>
+      <footer
+        class="footer sm:footer-horizontal bg-base-200 text-base-content p-10"
+      >
+        <nav>
+          <h6 class="footer-title">SwiftCard</h6>
+          <p>
+            Your one-stop shoping for all your fashion and lifestyle needs.
+            Quanlity products , fast delivery and axcellent support
+          </p>
+        </nav>
+        <nav>
+          <h6 class="footer-title ">QUICK LINKS</h6>
+          <a class="link link-hover">Home</a>
+          <a class="link link-hover">Products</a>
+          <a class="link link-hover">About us</a>
+          <a class="link link-hover">Contact</a>
+        </nav>
+        <nav>
+          <h6 class="footer-title">SUPPORT</h6>
+          <a class="link link-hover"> FAQ</a>
+          <a class="link link-hover">Shopping</a>
+          <a class="link link-hover">Returns</a>
+          <a class="link link-hover">Privacy Policy</a>
+        </nav>
+        <form>
+          <h6 class="footer-title">SUBSCRIB TO OUR NEWSLETTER</h6>
+          <p>The latest news ,articles,and resources sent to your inbox weekly</p>
+          <fieldset class="w-80">
+            <label>Enter your email address</label>
+            <div class="join">
+              <input
+                type="text"
+                placeholder="username@site.com"
+                class="input input-bordered join-item"
+              />
+              <button class="btn btn-primary join-item">Subscribe</button>
+            </div>
+          </fieldset>
+        </form>
+      </footer>
+    </footer>
   </body>
 </html>
