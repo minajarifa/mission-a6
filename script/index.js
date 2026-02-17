@@ -32,7 +32,7 @@ const displayAllData = (cards) => {
              ${card?.description}
             </p>
             <div class="justify-between card-actions">
-            <button onclick="my_modal_5.showModal()" class="btn btn-outline flex">
+            <button onclick="loadDetail(${card?.id})" class="btn btn-outline flex">
             <i class="fa-solid fa-eye"></i>
             Details</button>
              <button class="btn btn-primary flex">
@@ -52,22 +52,69 @@ const loadLession = () => {
     .then((res) => res.json())
     .then((data) => dispalyLession(data));
 };
-const removeAction =()=>{
-  const lessionButton = document.querySelectorAll(".lession-btn")
-  lessionButton.forEach(btn=>btn.classList.remove("active"))
-}
+const dispalyLession = (lessions) => {
+  const levelContainer = document.getElementById("level-container");
+  // levelContainer.innerHTML = "";
+
+  for (let lession of lessions) {
+    console.log(lession);
+    const btn = document.createElement("button");
+    btn.classList = "btn btn-dash btn-primary  lession-btn";
+    btn.id = `lesson-${lession}`;
+    btn.innerText = lession;
+    btn.addEventListener("click", () => {
+      loadCategoryCard(lession);
+    });
+
+    levelContainer.appendChild(btn);
+  }
+};
+const removeAction = () => {
+  const lessionButton = document.querySelectorAll(".lession-btn");
+  lessionButton.forEach((btn) => btn.classList.remove("active"));
+};
 // category data fetch
 const loadCategoryCard = (lession) => {
   const url = `https://fakestoreapi.com/products/category/${lession}`;
   fetch(url)
     .then((res) => res.json())
     .then((data) => {
-      removeAction()
-      const clickBtn = document.getElementById(`lesson-${lession}`)
-      clickBtn.classList.add("active")
+      removeAction();
+      const clickBtn = document.getElementById(`lesson-${lession}`);
+      clickBtn.classList.add("active");
       // console.log(clickBtn)
       displayCategoryCard(data);
     });
+};
+//function for detail page
+const loadDetail = (id) => {
+  const url = `https://fakestoreapi.com/products/${id}`;
+  fetch(url)
+    .then((res) => res.json())
+    .then((data) => {
+      displayDetail(data);
+    });
+};
+//function for display detail page
+const displayDetail = (details) => {
+  console.log(details);
+  const detailPage = document.getElementById("details-container");
+  document.getElementById("my_modal_5").showModal();
+  detailPage.innerHTML = `
+  <div class="min-h-screen hero bg-base-200">
+            <div class="flex-col hero-content lg:flex-row-reverse">
+              
+              <div>
+                <h1 class="text-5xl font-bold">category: ${details?.category}</h1>
+                <h1 class="text-5xl font-bold">title:${details?.title}</h1>
+                <h1 class="text-5xl font-bold">category:${details?.category}</h1>
+                <p class="py-6">
+               description: ${details?.description}
+                </p>
+                <button class="btn btn-primary">Price:${details?.Price}</button>
+              </div>
+            </div>
+          </div>`;
 };
 // category data display
 const displayCategoryCard = (category) => {
@@ -97,7 +144,7 @@ const displayCategoryCard = (category) => {
              ${categori?.description}
             </p>
             <div class="justify-between card-actions">
-            <button onclick="my_modal_5.showModal()" class="btn btn-outline flex">
+            <button onclick="loadDetail(${categori?.id})" class="btn btn-outline flex">
             <i class="fa-solid fa-eye"></i>
             Details</button>
              <button class="btn btn-primary flex">
@@ -111,22 +158,5 @@ const displayCategoryCard = (category) => {
   });
 };
 
-const dispalyLession = (lessions) => {
-  const levelContainer = document.getElementById("level-container");
-  // levelContainer.innerHTML = "";
-
-  for (let lession of lessions) {
-    console.log(lession)
-    const btn = document.createElement("button");
-    btn.classList = "btn btn-dash btn-primary  lession-btn";
-    btn.id = `lesson-${lession}`;
-    btn.innerText = lession;
-    btn.addEventListener("click", () => {
-      loadCategoryCard(lession);
-    });
-
-    levelContainer.appendChild(btn);
-  }
-};
-getAllData();
 loadLession();
+getAllData();
